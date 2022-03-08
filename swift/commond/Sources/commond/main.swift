@@ -33,7 +33,7 @@ public func merge(_ t:inout [Int]){
 public func move(_ t:inout [Int]){
     var arr=[Int](repeating: 0, count: t.count)
     var num=0
-    for i in 0 ..< t.count{
+    for i in 0 ..< t.count{ 
         if(t[i] != 0){
             arr[num]=t[i]
             num+=1
@@ -43,14 +43,15 @@ public func move(_ t:inout [Int]){
 }
 
 func check(_ t:[Int])-> Bool{
-    for i in 0 ..< t.count - 1{
-        if(t[i]==t[i+1]){
+    let temp = t.filter({ $0 == 0 })
+    for i in 0 ..< temp.count - 1{
+        if(temp[i]==temp[i+1]){
             return false
         }
     }
     return true
 }
-
+/// 从t 为0 的位置随机插入新值
 func randomInsert(_ t:inout [Int]){
     let num=Int.random(in: 0..<100) > 25 ? 2:4
     var l=[Int]()
